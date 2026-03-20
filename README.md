@@ -1,10 +1,22 @@
 # pktsniff
 
-packet sniffer thing in C. run on linux (or wsl2)
+packet sniffer in C. linux/wsl2 only
 
-## build & run
+## build
 
 ```bash
-gcc sniffer.c -o sniffer
-sudo ./sniffer
+gcc sniffer.c parse.c util.c -o sniffer
 ```
+
+## run
+
+```bash
+sudo ./sniffer
+sudo ./sniffer -t # tcp only
+sudo ./sniffer -u # udp only
+sudo ./sniffer --port 443 # filter by port
+sudo ./sniffer -t -x # tcp, no hexdump
+sudo ./sniffer -h # help
+```
+
+needs root for raw sockets
